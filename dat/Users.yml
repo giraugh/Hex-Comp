@@ -1,0 +1,9 @@
+users:
+  -
+    firstname: "Jim"
+    secondname: "Bobb"
+    skill: 0
+  -
+    firstname: "James"
+    secondname: "May"
+    skill: 1
