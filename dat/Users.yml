@@ -1,9 +1,17 @@
 users:
-  -
-    firstname: "Jim"
-    secondname: "Bobb"
-    skill: 0
-  -
-    firstname: "James"
-    secondname: "May"
-    skill: 1
+- firstname: Jim
+  secondname: Bobb
+  skill: 1
+  bytime: 9
+- firstname: James
+  secondname: May
+  skill: 1
+  bytime: 0
+- firstname: Crook
+  secondname: Harrold
+  skill: 1
+  bytime: 1
+- firstname: Thomas
+  secondname: Fisher
+  skill: 1
+  bytime: 0

@@ -8,17 +8,25 @@ import (
 
 const UserFile = "./dat/Users.yml"
 const PartsFile = "./dat/Parts.yml"
+const CompFile = "./dat/Comp.yml"
 
 type Users struct {
   USERS []struct {
     FIRSTNAME string
     SECONDNAME string
     SKILL int
+    BYTIME int
   }
 }
 
 type Parts struct {
   PARTICIPANTS []int
+}
+
+type Comp struct {
+  TYPE string
+  PARTICIPANTS []int
+  ROUNDNUM int
 }
 
 func LoadUsers() Users {
@@ -34,6 +42,21 @@ func LoadUsers() Users {
   if err != nil {fmt.Println(err)}
 
   return users
+}
+
+func LoadComp() Comp {
+  //Read Comp File
+  bts, err := ioutil.ReadFile(CompFile)
+  if err != nil {fmt.Println(err)}
+
+  //Create 'Comp' data structure
+  comp := Comp{}
+
+  //Deserialize
+  err = yaml.Unmarshal(bts, &comp)
+  if err != nil {fmt.Println(err)}
+
+  return comp
 }
 
 func LoadParts() Parts {
@@ -57,6 +80,14 @@ func SaveParts(parts Parts) {
 
   //Write to file
   ioutil.WriteFile(PartsFile, srl, 0644)
+}
+
+func SaveComp(comp Comp) {
+  //serialize
+  srl, _ := yaml.Marshal(&comp)
+
+  //Write to file
+  ioutil.WriteFile(CompFile, srl, 0644)
 }
 
 func SaveUsers(users Users) {
